@@ -4,6 +4,34 @@ import { TiDelete } from "react-icons/ti";
 import { FaRegCopy } from "react-icons/fa";
 import { MdClear, MdOutlineContentCopy } from "react-icons/md";
 
+const calculate = (operation, result) => {
+
+  var inputOperation = document.getElementById(operation).value;
+  if (inputOperation === '') {
+    document.getElementById(result).value = '';
+    return;
+  }
+  try {
+    var calculatedValue = eval(inputOperation);
+    document.getElementById(result).value = calculatedValue;
+  } catch (error) {
+    // intentionally blank
+  }
+}
+
+function validateInputDoubleMathSymbol(event, operation) {
+    var lastValueOfInput = document.getElementById(operation).value;  
+        lastValueOfInput = lastValueOfInput.at(lastValueOfInput.length-1);
+
+    if( isMathSymbol(lastValueOfInput) && isMathSymbol(event.key)) 
+    event.preventDefault();
+}
+
+function isMathSymbol( val ) {
+  if( val === "+" || val === "-" || val === "*" || val === "/" || val ==="%")
+  return true;
+}
+
 const op1 = () => {
   return (
     <div className='max-md:order-first flex flex-col justify-around h-[140px] w-[500px] max-sm:w-screen text-lg p-2' >
@@ -11,24 +39,15 @@ const op1 = () => {
         <input
           id="op1"
           autocomplete="off"
-          placeholder="Input your operation here + () - * / % "
+          placeholder="Input your operation here.."
           onKeyPress={(event) => {
             if (!/[0-9 + --  * / % . ( )]/.test(event.key)) {
               event.preventDefault();
             }
+            validateInputDoubleMathSymbol(event, "op1");
           }}
-          onKeyUp={() => {
-            var op1 = document.getElementById("op1").value;
-            if (op1 === '') {
-              document.getElementById("op2").value = '';
-              return;
-            }
-            try {
-              var op2 = eval(op1);
-              document.getElementById("op2").value = op2;
-            } catch (error) {
-              // left blank
-            }
+          onKeyUp={() => { 
+            calculate( "op1", "op2");
           }}
         />
         <TiDelete size={30}
@@ -41,27 +60,18 @@ const op1 = () => {
         />
       </div>
       <div className='relative'>
-        <input
+        <input 
           id="op2"
           autocomplete="off"
-          placeholder="Input your operation here + () - * / % "
+          placeholder="Input your operation here.. "
           onKeyPress={(event) => {
             if (!/[0-9 + --  * / % . ( )]/.test(event.key)) {
               event.preventDefault();
             }
+            validateInputDoubleMathSymbol(event, "op2");
           }}
           onKeyUp={() => {
-            var op2 = document.getElementById("op2").value;
-            if (op2 === '') {
-              document.getElementById("op1").value = '';
-              return;
-            }
-            try {
-              var op1 = eval(op2);
-              document.getElementById("op1").value = op1;
-            } catch (error) {
-              // left blank
-            }
+            calculate( "op2", "op1");
           }}
         />
         <FaRegCopy

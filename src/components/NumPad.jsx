@@ -1,9 +1,26 @@
 import React from "react";
 
+var operation = "";
+var result = "";
+function addValue() {
+  for (let i = 0; i < document.getElementsByTagName('td').length; i++) {
+    document.getElementsByTagName('td')[i].onclick = function () {
+      if (document.getElementsByTagName('td')[i].textContent === 'c') {
+        document.getElementById("op1").value = '';
+        document.getElementById("op2").value = '';
+        document.getElementById("op1").focus();
+        return;
+      } 
+      operation = document.getElementById("op1").value+=document.getElementsByTagName('td')[i].textContent;
+    }
+  }
+}
+
 const NumPad = () => {
   return (
     <div className="mt-5">
-      <table className="num-pad rounded-md dark:bg-[rgb(17,20,27)] bg-[rgb(244,246,248)]">
+      <table className="num-pad rounded-md dark:bg-[rgb(17,20,27)] bg-[rgb(244,246,248)]"
+        onClick={() => addValue()}>
         <tr>
           <td>(</td>
           <td>)</td>

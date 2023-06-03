@@ -1,13 +1,35 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&family=Raleway:wght@300;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply light-mode dark:dark-mode select-none;
+    
+  }
+  input {
+    @apply w-full py-3 outline-none px-5 rounded-full text-black dark:text-white bg-[rgb(244,246,248)] dark:bg-[rgb(17,20,27)];
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .dark-mode {
+    @apply bg-[rgb(13,17,23)] text-slate-300;
+  }
+  .light-mode {
+    @apply bg-[rgb(255,255,255)] text-black;
+  }
+  .num-pad {
+    @apply w-[300px] h-[400px] max-md:w-[450px]
+  }
+  .num-pad > tr > td {
+    @apply w-[25%] text-center transform duration-100 active:scale-150 cursor-pointer
+  }
 }

@@ -1,16 +1,16 @@
 import React from "react";
 
-function handleClick(val) {
+function handleClick(clickValue) {
   var op1 = document.getElementById("op1");
   var op2 = document.getElementById("op2");
   if (document.getElementById("catchFocus").innerHTML === 'op2') {
-    if (isNotDoubleMathSymbol('op2', val)) {
-      op2.value += val;
+    if (isNotDoubleMathSymbol('op2', clickValue)) {
+      op2.value += clickValue;
       calculate("op2", "op1")
     }
   } else {
-    if (isNotDoubleMathSymbol('op1', val)) {
-      op1.value += val;
+    if (isNotDoubleMathSymbol('op1', clickValue)) {
+      op1.value += clickValue;
       calculate("op1", "op2")
     }
   }
@@ -33,8 +33,12 @@ const calculate = (operation, result) => {
 
 function isNotDoubleMathSymbol(operation, inputValue) {
   var lastValueOfInput = document.getElementById(operation).value;
-  lastValueOfInput = lastValueOfInput.at(lastValueOfInput.length - 1);
-
+  if( !lastValueOfInput === '') {
+    lastValueOfInput = lastValueOfInput.at(lastValueOfInput.length - 1);
+  } else {
+    lastValueOfInput = '';
+  }
+  
   if (isMathSymbol(lastValueOfInput) && isMathSymbol(inputValue)) {
     return false;
   }

@@ -15,7 +15,9 @@
     
   }
   input {
-    @apply w-full py-3 outline-none px-5 rounded-full text-black dark:text-white bg-[rgb(244,246,248)] dark:bg-[rgb(17,20,27)];
+    @apply w-full py-3 outline-none px-5 rounded-full 
+    text-black dark:text-white bg-[rgb(244,246,248)] dark:bg-[#0F202A]
+    text-xl font-medium
   }
 }
 
@@ -26,10 +28,10 @@
   .light-mode {
     @apply bg-[rgb(255,255,255)] text-black;
   }
-  .num-pad {
-    @apply w-[300px] h-[400px] max-md:w-[450px]
-  }
+  /* .num-pad {
+    @apply w-[300px] h-[400px]
+  } */
   .num-pad > tr > td {
-    @apply w-[25%] text-center transform duration-100 active:scale-150 cursor-pointer
+    @apply p-[40px] text-center transform duration-100 active:scale-150 cursor-pointer text-xl font-bold
   }
 }

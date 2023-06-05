@@ -19,7 +19,7 @@ function addValue() {
 const NumPad = () => {
   return (
     <div className="mt-5">
-      <table className="num-pad rounded-md dark:bg-[rgb(17,20,27)] bg-[rgb(244,246,248)]"
+      <table className="num-pad rounded-md dark:bg-[#0F202A] bg-[rgb(244,246,248)]"
         onClick={() => addValue()}>
         <tr>
           <td>(</td>

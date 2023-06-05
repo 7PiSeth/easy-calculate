@@ -15,8 +15,7 @@ const App = () => {
   return (
     <div>
       <TopBar />
-      <div className='flex flex-col md:flex-row justify-between md:pt-5 max-md:items-center'>
-      <NumPad />
+      <div className='max-w-screen-md flex flex-col mx-auto items-center'>
       <Operation />
       <NumPad />
       </div>

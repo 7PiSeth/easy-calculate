@@ -1,55 +1,124 @@
 import React from "react";
 
-var operation = "";
-var result = "";
-function addValue() {
-  for (let i = 0; i < document.getElementsByTagName('td').length; i++) {
-    document.getElementsByTagName('td')[i].onclick = function () {
-      if (document.getElementsByTagName('td')[i].textContent === 'c') {
-        document.getElementById("op1").value = '';
-        document.getElementById("op2").value = '';
-        document.getElementById("op1").focus();
-        return;
-      } 
-      operation = document.getElementById("op1").value+=document.getElementsByTagName('td')[i].textContent;
+function handleClick(val) {
+  var op1 = document.getElementById("op1");
+  var op2 = document.getElementById("op2");
+  if (document.getElementById("catchFocus").innerHTML === 'op2') {
+    if (isNotDoubleMathSymbol('op2', val)) {
+      op2.value += val;
+      calculate("op2", "op1")
+    }
+  } else {
+    if (isNotDoubleMathSymbol('op1', val)) {
+      op1.value += val;
+      calculate("op1", "op2")
     }
   }
+}
+
+const calculate = (operation, result) => {
+
+  var inputOperation = document.getElementById(operation).value;
+  if (inputOperation === '') {
+    document.getElementById(result).value = '';
+    return;
+  }
+  try {
+    var calculatedValue = eval(inputOperation);
+    document.getElementById(result).value = calculatedValue;
+  } catch (error) {
+    // intentionally blank
+  }
+}
+
+function isNotDoubleMathSymbol(operation, inputValue) {
+  var lastValueOfInput = document.getElementById(operation).value;
+  lastValueOfInput = lastValueOfInput.at(lastValueOfInput.length - 1);
+
+  if (isMathSymbol(lastValueOfInput) && isMathSymbol(inputValue)) {
+    return false;
+  }
+  return true;
+}
+
+function isMathSymbol(val) {
+  if (val === "+" || val === "-" || val === "*" || val === "/" || val === "%")
+    return true;
 }
 
 const NumPad = () => {
   return (
     <div className="mt-5">
-      <table className="num-pad rounded-md dark:bg-[#0F202A] bg-[rgb(244,246,248)]"
-        onClick={() => addValue()}>
+      <table className="num-pad rounded-md dark:bg-[#282C34] bg-[rgb(244,246,248)]">
         <tr>
-          <td>(</td>
-          <td>)</td>
-          <td>%</td>
-          <td>/</td>
+          <td onClick={() => {
+            handleClick('(')
+          }}
+          >(</td>
+          <td onClick={() => {
+            handleClick(')')
+          }}>)</td>
+          <td onClick={() => {
+            handleClick('%')
+          }}>%</td>
+          <td onClick={() => {
+            handleClick('/')
+          }}>/</td>
         </tr>
         <tr>
-          <td>7</td>
-          <td>8</td>
-          <td>9</td>
-          <td>x</td>
+          <td onClick={() => {
+            handleClick('7')
+          }}>7</td>
+          <td onClick={() => {
+            handleClick('8')
+          }}>8</td>
+          <td onClick={() => {
+            handleClick('9')
+          }}>9</td>
+          <td onClick={() => {
+            handleClick('*')
+          }}>*</td>
         </tr>
         <tr>
-          <td>4</td>
-          <td>5</td>
-          <td>6</td>
-          <td>+</td>
+          <td onClick={() => {
+            handleClick('4')
+          }}>4</td>
+          <td onClick={() => {
+            handleClick('5')
+          }}>5</td>
+          <td onClick={() => {
+            handleClick('6')
+          }}>6</td>
+          <td onClick={() => {
+            handleClick('+')
+          }}>+</td>
         </tr>
         <tr>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td>-</td>
+          <td onClick={() => {
+            handleClick('1')
+          }}>1</td>
+          <td onClick={() => {
+            handleClick('2')
+          }}>2</td>
+          <td onClick={() => {
+            handleClick('3')
+          }}>3</td>
+          <td onClick={() => {
+            handleClick('-')
+          }}>-</td>
         </tr>
         <tr>
-          <td>0</td>
-          <td>.</td>
-          <td>c</td>
-          <td>=</td>
+          <td onClick={() => {
+            handleClick('0')
+          }}>0</td>
+          <td onClick={() => {
+            handleClick('.')
+          }}>.</td>
+          <td colSpan={2}
+            onClick={() => {
+              document.getElementById("op1").value = "";
+              document.getElementById("op2").value = "";
+            }}>c</td>
         </tr>
       </table>
     </div>

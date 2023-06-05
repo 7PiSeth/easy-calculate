@@ -49,9 +49,12 @@ const op1 = () => {
           onKeyUp={() => { 
             calculate( "op1", "op2");
           }}
+          onFocusCapture={()=>{
+            document.getElementById("catchFocus").innerHTML = "op1"
+          }}
         />
         <TiDelete size={30}
-          className='transform duration-100 absolute right-3 top-[20%] cursor-pointer active:scale-125'
+          className='transform duration-100 absolute right-3 top-[21%] cursor-pointer active:scale-125'
           onClick={() => {
             document.getElementById("op1").value = '';
             document.getElementById("op2").value = '';
@@ -73,10 +76,13 @@ const op1 = () => {
           onKeyUp={() => {
             calculate( "op2", "op1");
           }}
+          onFocusCapture={()=>{
+            document.getElementById("catchFocus").innerHTML = "op2"
+          }}
         />
         <FaRegCopy
         size={20}
-          className='transform duration-100 absolute right-4 top-[30%] cursor-pointer active:scale-125'
+          className='transform duration-100 absolute right-4 top-[31%] cursor-pointer active:scale-125'
         />
       </div>
     </div>

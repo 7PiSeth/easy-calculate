@@ -16,7 +16,7 @@
   }
   input {
     @apply w-full py-3 outline-none px-5 rounded-full 
-    text-black dark:text-white bg-[rgb(244,246,248)] dark:bg-[#0F202A]
+    text-black dark:text-white bg-[rgb(244,246,248)] dark:bg-[#282C34]
     text-xl font-medium
   }
 }
@@ -32,6 +32,6 @@
     @apply w-[300px] h-[400px]
   } */
   .num-pad > tr > td {
-    @apply p-[40px] text-center transform duration-100 active:scale-150 cursor-pointer text-xl font-bold
+    @apply p-[40px] text-center transform duration-100 active:scale-150 cursor-pointer text-2xl font-bold
   }
 }

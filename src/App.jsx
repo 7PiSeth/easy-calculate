@@ -5,7 +5,7 @@ import Operation from './components/Operation'
 
 const App = () => {
 
-  useEffect(()=>{
+  useEffect(() => {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
       document.getElementById("op1").setAttribute("inputMode", "none");
@@ -16,8 +16,9 @@ const App = () => {
     <div>
       <TopBar />
       <div className='max-w-screen-md flex flex-col mx-auto items-center'>
-      <Operation />
-      <NumPad />
+        <span id='catchFocus' className='invisible absolute'>op1</span>
+        <Operation />
+        <NumPad />
       </div>
     </div>
   )

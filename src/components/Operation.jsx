@@ -34,7 +34,7 @@ function isMathSymbol( val ) {
 
 const op1 = () => {
   return (
-    <div className='max-md:order-first flex flex-col justify-around h-[140px] w-[500px] max-sm:w-screen text-lg p-2' >
+    <div className='max-md:order-first flex flex-col justify-around h-[160px] w-[500px] max-sm:w-screen text-lg p-2' >
       <div className='relative'>
         <input
           id="op1"
@@ -54,7 +54,7 @@ const op1 = () => {
           }}
         />
         <TiDelete size={30}
-          className='transform duration-100 absolute right-3 top-[21%] cursor-pointer active:scale-125'
+          className='transform duration-100 absolute right-4 top-[25%] cursor-pointer active:scale-125'
           onClick={() => {
             document.getElementById("op1").value = '';
             document.getElementById("op2").value = '';
@@ -82,7 +82,7 @@ const op1 = () => {
         />
         <FaRegCopy
         size={20}
-          className='transform duration-100 absolute right-4 top-[31%] cursor-pointer active:scale-125'
+          className='transform duration-100 absolute right-5 top-[33%] cursor-pointer active:scale-125'
         />
       </div>
     </div>

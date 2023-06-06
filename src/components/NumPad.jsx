@@ -52,7 +52,7 @@ function isMathSymbol(val) {
 
 const NumPad = () => {
   return (
-    <div className="mt-5">
+    <div className="mt-6">
       <table className="num-pad rounded-md dark:bg-[#282C34] bg-[rgb(244,246,248)]">
         <tr>
           <td onClick={() => {
@@ -122,7 +122,7 @@ const NumPad = () => {
             onClick={() => {
               document.getElementById("op1").value = "";
               document.getElementById("op2").value = "";
-            }}>c</td>
+            }}>Clear</td>
         </tr>
       </table>
     </div>

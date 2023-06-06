@@ -32,6 +32,12 @@ function isMathSymbol( val ) {
   return true;
 }
 
+function copyToClipBoard(opID) {
+  var value = document.getElementById(opID).value;
+  navigator.clipboard.writeText(value);
+  alert( "You have copy the value." )
+}
+
 const op1 = () => {
   return (
     <div className='max-md:order-first flex flex-col justify-around h-[160px] w-[500px] max-sm:w-screen text-lg p-2' >
@@ -83,6 +89,9 @@ const op1 = () => {
         <FaRegCopy
         size={20}
           className='transform duration-100 absolute right-5 top-[33%] cursor-pointer active:scale-125'
+          onClick={()=>{
+            copyToClipBoard("op2");
+          }}
         />
       </div>
     </div>

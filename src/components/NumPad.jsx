@@ -37,7 +37,7 @@ const calculate = (operation, result) => {
 function isNotDoubleMathSymbol(operation, inputValue) {
   var lastValueOfInput = document.getElementById(operation).value;
   if ( lastValueOfInput.length>0) {
-    lastValueOfInput = lastValueOfInput.at(lastValueOfInput.length - 1);
+    lastValueOfInput = lastValueOfInput.slice(lastValueOfInput.length - 1);
   }
   if (isMathSymbol(lastValueOfInput) && isMathSymbol(inputValue)) {
     return false;

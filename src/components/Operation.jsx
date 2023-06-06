@@ -3,6 +3,7 @@ import { RiDeleteBack2Fill } from "react-icons/ri";
 import { TiDelete } from "react-icons/ti";
 import { FaRegCopy } from "react-icons/fa";
 import { MdClear, MdOutlineContentCopy } from "react-icons/md";
+import copy from 'copy-to-clipboard';
 
 const calculate = (operation, result) => {
 
@@ -30,12 +31,6 @@ function validateInputDoubleMathSymbol(event, operation) {
 function isMathSymbol( val ) {
   if( val === "+" || val === "-" || val === "*" || val === "/" || val ==="%")
   return true;
-}
-
-function copyToClipBoard(opID) {
-  var value = document.getElementById(opID).value;
-  navigator.clipboard.writeText(value);
-  alert( "You have copy the value." )
 }
 
 const op1 = () => {
@@ -90,7 +85,9 @@ const op1 = () => {
         size={20}
           className='transform duration-100 absolute right-5 top-[33%] cursor-pointer active:scale-125'
           onClick={()=>{
-            copyToClipBoard("op2");
+            var value = document.getElementById("op2").value;
+            copy( value );
+            alert( value + " has been copy." )
           }}
         />
       </div>

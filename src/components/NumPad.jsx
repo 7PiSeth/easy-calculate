@@ -1,4 +1,6 @@
 import React from "react";
+// import { BiLeftArrow, BiSolidLeftArrowSquare } from "react-icons/bi";
+import { BsFillBackspaceFill, BsBackspace } from "react-icons/bs";
 
 function handleClick(clickValue) {
   var op1 = document.getElementById("op1");
@@ -36,7 +38,7 @@ const calculate = (operation, result) => {
 
 function isNotDoubleMathSymbol(operation, inputValue) {
   var lastValueOfInput = document.getElementById(operation).value;
-  if ( lastValueOfInput.length>0) {
+  if (lastValueOfInput.length > 0) {
     lastValueOfInput = lastValueOfInput.slice(lastValueOfInput.length - 1);
   }
   if (isMathSymbol(lastValueOfInput) && isMathSymbol(inputValue)) {
@@ -56,12 +58,24 @@ const NumPad = () => {
       <table className="num-pad rounded-md dark:bg-[#282C34] bg-[rgb(244,246,248)]">
         <tr>
           <td onClick={() => {
-            handleClick('(')
-          }}
-          >(</td>
-          <td onClick={() => {
-            handleClick(')')
-          }}>)</td>
+            var op1 = document.getElementById("op1");
+            var op2 = document.getElementById("op2");
+            switch (document.getElementById("catchFocus").innerHTML) {
+              case "op2":
+                op2.value = op2.value.replace(/.$/, '')
+                break;
+              default:
+                op1.value = op1.value.replace(/.$/, '')
+                break;
+            }
+          }}>
+            <BsBackspace />
+          </td>
+          <td
+            onClick={() => {
+              document.getElementById("op1").value = "";
+              document.getElementById("op2").value = "";
+            }}>C</td>
           <td onClick={() => {
             handleClick('%')
           }}>%</td>
@@ -95,7 +109,7 @@ const NumPad = () => {
           }}>6</td>
           <td onClick={() => {
             handleClick('+')
-          }}>+</td>
+          }}>-</td>
         </tr>
         <tr>
           <td onClick={() => {
@@ -109,7 +123,7 @@ const NumPad = () => {
           }}>3</td>
           <td onClick={() => {
             handleClick('-')
-          }}>-</td>
+          }}>+</td>
         </tr>
         <tr>
           <td onClick={() => {
@@ -118,11 +132,14 @@ const NumPad = () => {
           <td onClick={() => {
             handleClick('.')
           }}>.</td>
-          <td colSpan={2}
-            onClick={() => {
-              document.getElementById("op1").value = "";
-              document.getElementById("op2").value = "";
-            }}>Clear</td>
+
+          <td onClick={() => {
+            handleClick('(')
+          }}
+          >(</td>
+          <td onClick={() => {
+            handleClick(')')
+          }}>)</td>
         </tr>
       </table>
     </div>

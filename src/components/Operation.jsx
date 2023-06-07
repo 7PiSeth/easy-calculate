@@ -26,6 +26,9 @@ function validateInputDoubleMathSymbol(event, operation) {
 
   if (isMathSymbol(lastValueOfInput) && isMathSymbol(event.key))
     event.preventDefault();
+
+  if( isMathSymbol(event.key) && typeof lastValueOfInput === 'undefined' )
+    event.preventDefault();
 }
 
 function isMathSymbol(val) {
@@ -106,7 +109,7 @@ const op1 = () => {
             var op1 = document.getElementById("op1");
             var op2 = document.getElementById("op2");
 
-            if (contentMathSymbol('op1') && catchValueOfOP1 !== op1.value ) {
+            if (contentMathSymbol('op1') && catchValueOfOP1 !== op1.value) {
               textArea.value += "\n" + op1.value + " = " + op2.value;
             }
             catchValueOfOP1 = op1.value;
@@ -117,8 +120,10 @@ const op1 = () => {
           className='transform duration-100 absolute right-5 top-[33%] cursor-pointer active:scale-125'
           onClick={() => {
             var value = document.getElementById("op2").value;
-            copy(value);
-            alert(value + " has been copy.")
+            if (value !== '') {
+              copy(value);
+              alert(value + " has been copy.")
+            }
           }}
         />
       </div>

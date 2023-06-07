@@ -113,7 +113,7 @@ const NumPad = () => {
             handleClick('6')
           }}>6</td>
           <td onClick={() => {
-            handleClick('+')
+            handleClick('-')
           }}>-</td>
         </tr>
         <tr>
@@ -127,7 +127,7 @@ const NumPad = () => {
             handleClick('3')
           }}>3</td>
           <td onClick={() => {
-            handleClick('-')
+            handleClick('+')
           }}>+</td>
         </tr>
         <tr>

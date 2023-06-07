@@ -21,17 +21,32 @@ const calculate = (operation, result) => {
 }
 
 function validateInputDoubleMathSymbol(event, operation) {
-    var lastValueOfInput = document.getElementById(operation).value;  
-        lastValueOfInput = lastValueOfInput.at(lastValueOfInput.length-1);
+  var lastValueOfInput = document.getElementById(operation).value;
+  lastValueOfInput = lastValueOfInput.at(lastValueOfInput.length - 1);
 
-    if( isMathSymbol(lastValueOfInput) && isMathSymbol(event.key)) 
+  if (isMathSymbol(lastValueOfInput) && isMathSymbol(event.key))
     event.preventDefault();
 }
 
-function isMathSymbol( val ) {
-  if( val === "+" || val === "-" || val === "*" || val === "/" || val ==="%")
-  return true;
+function isMathSymbol(val) {
+  if (val === "+" || val === "-" || val === "*" || val === "/" || val === "%")
+    return true;
 }
+
+function contentMathSymbol(opID) {
+  var operation = document.getElementById(opID).value;
+  if (operation.includes("+")
+    || operation.includes("-")
+    || operation.includes("*")
+    || operation.includes("/")
+    || operation.includes("%")) {
+    return true;
+  }
+  return false;
+}
+
+var catchValueOfOP1 = '';
+var catchValueOfOP2 = '';
 
 const op1 = () => {
   return (
@@ -47,11 +62,19 @@ const op1 = () => {
             }
             validateInputDoubleMathSymbol(event, "op1");
           }}
-          onKeyUp={() => { 
-            calculate( "op1", "op2");
+          onKeyUp={() => {
+            calculate("op1", "op2");
           }}
-          onFocusCapture={()=>{
+          onFocusCapture={() => {
             document.getElementById("catchFocus").innerHTML = "op1"
+            var textArea = document.getElementById("history");
+            var op1 = document.getElementById("op1");
+            var op2 = document.getElementById("op2");
+
+            if (contentMathSymbol('op2') && catchValueOfOP2 !== op2.value) {
+              textArea.value += "\n" + op2.value + " = " + op1.value;
+            }
+            catchValueOfOP2 = op2.value;
           }}
         />
         <TiDelete size={30}
@@ -64,7 +87,7 @@ const op1 = () => {
         />
       </div>
       <div className='relative'>
-        <input 
+        <input
           id="op2"
           autocomplete="off"
           placeholder="Input your operation here.. "
@@ -75,19 +98,27 @@ const op1 = () => {
             validateInputDoubleMathSymbol(event, "op2");
           }}
           onKeyUp={() => {
-            calculate( "op2", "op1");
+            calculate("op2", "op1");
           }}
-          onFocusCapture={()=>{
+          onFocusCapture={() => {
             document.getElementById("catchFocus").innerHTML = "op2"
+            var textArea = document.getElementById("history");
+            var op1 = document.getElementById("op1");
+            var op2 = document.getElementById("op2");
+
+            if (contentMathSymbol('op1') && catchValueOfOP1 !== op1.value ) {
+              textArea.value += "\n" + op1.value + " = " + op2.value;
+            }
+            catchValueOfOP1 = op1.value;
           }}
         />
         <FaRegCopy
-        size={20}
+          size={20}
           className='transform duration-100 absolute right-5 top-[33%] cursor-pointer active:scale-125'
-          onClick={()=>{
+          onClick={() => {
             var value = document.getElementById("op2").value;
-            copy( value );
-            alert( value + " has been copy." )
+            copy(value);
+            alert(value + " has been copy.")
           }}
         />
       </div>

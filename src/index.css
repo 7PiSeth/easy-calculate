@@ -29,7 +29,7 @@
     @apply bg-[rgb(255,255,255)] text-black;
   }
   .num-pad {
-    @apply max-sm:w-screen max-sm:bg-transparent
+    @apply max-sm:w-screen max-sm:absolute max-sm:bottom-0 max-sm:left-0 max-sm:h-[70vh]
   }
   .num-pad > tr > td {
     @apply p-[30px] text-center transform duration-100 

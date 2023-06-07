@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import TopBar from "./components/TopBar"
 import NumPad from './components/NumPad'
 import Operation from './components/Operation'
+import History from './components/History'
 
 const App = () => {
 
@@ -19,6 +20,7 @@ const App = () => {
         <span id='catchFocus' className='invisible absolute'>op1</span>
         <Operation />
         <NumPad />
+        <History />
       </div>
     </div>
   )

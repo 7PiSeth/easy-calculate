@@ -44,6 +44,11 @@ function isNotDoubleMathSymbol(operation, inputValue) {
   if (isMathSymbol(lastValueOfInput) && isMathSymbol(inputValue)) {
     return false;
   }
+
+  if (isMathSymbol(inputValue) && lastValueOfInput === '' ) {
+    return false;
+  }
+  
   return true;
 }
 

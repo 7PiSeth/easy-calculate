@@ -29,8 +29,11 @@ const calculate = (operation, result) => {
     return;
   }
   try {
-    var calculatedValue = eval(inputOperation);
-    document.getElementById(result).value = calculatedValue.toFixed(2);
+    var calculatedValue = eval(inputOperation).toFixed(2);
+    if (calculatedValue.substr(calculatedValue.length - 3, 3) === '.00') {
+      calculatedValue = calculatedValue.substr(0, calculatedValue.length - 3);
+    }
+    document.getElementById(result).value = calculatedValue;
   } catch (error) {
     // intentionally blank
   }

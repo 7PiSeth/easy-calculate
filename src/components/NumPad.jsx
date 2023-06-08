@@ -30,7 +30,7 @@ const calculate = (operation, result) => {
   }
   try {
     var calculatedValue = eval(inputOperation);
-    document.getElementById(result).value = calculatedValue;
+    document.getElementById(result).value = calculatedValue.toFixed(2);
   } catch (error) {
     // intentionally blank
   }

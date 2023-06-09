@@ -36,4 +36,7 @@
     active:scale-150 cursor-pointer text-4xl font-bold
     
   }
+  .dropHistory {
+    @apply w-full h-full rounded-none top-0 z-10
+  }
 }

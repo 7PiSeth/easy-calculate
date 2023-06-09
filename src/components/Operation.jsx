@@ -19,7 +19,7 @@ const calculate = (operation, result) => {
     }
     document.getElementById(result).value = calculatedValue;
   } catch (error) {
-    // intentionally blank
+    document.getElementById(result).value = "Error input operation incorrect"
   }
 }
 
@@ -64,6 +64,9 @@ function isCorrectInput(event, operation) {
     event.preventDefault();
 
   if (isMathSymbol(lastValueOfInput) && (event.key ==='.' || event.key ===')' ) )
+    event.preventDefault();
+
+  if (!isMathSymbol(lastValueOfInput) && (event.key ==='(' ) )
     event.preventDefault();
 }
 

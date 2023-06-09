@@ -3,7 +3,8 @@ import { TiDelete } from "react-icons/ti";
 
 const History = (props) => {
   return (
-    <div className={`absolute right-0 top-[8%] h-[85vh] w-[30vw] max-xl:dropHistory duration-500
+    <div className={`absolute right-0 top-[8%] h-[85vh] w-[30vw]
+    bg-[rgb(244,246,248)] dark:bg-[#282C34] max-xl:dropHistory duration-500
     ${props.showHistory?'max-xl:translate-y-[0vh] ':'max-xl:-translate-y-[100vh]'}`}>
       <TiDelete
         size={40}
@@ -17,7 +18,7 @@ const History = (props) => {
         disabled
         name=""
         id="history"
-        className="rounded-2xl max-xl:rounded-none bg-[rgb(244,246,248)] w-full h-full dark:bg-[#282C34] outline-none
+        className="rounded-2xl max-xl:rounded-none w-full h-full outline-none
         p-5 text-2xl max-xl:pt-[60px]"
       >
         Operation History

@@ -7,13 +7,13 @@ function handleClick(clickValue) {
   var op2 = document.getElementById("op2");
   switch (document.getElementById("catchFocus").innerHTML) {
     case "op2":
-      if (isNotDoubleMathSymbol('op2', clickValue)) {
+      if (isNotDoubleMathSymbol('op2', clickValue) && isCorrectInput('op2', clickValue) ) {
         op2.value += clickValue;
         calculate("op2", "op1")
       }
       break;
     default:
-      if (isNotDoubleMathSymbol('op1', clickValue)) {
+      if (isNotDoubleMathSymbol('op1', clickValue) && isCorrectInput('op1', clickValue) ) {
         op1.value += clickValue;
         calculate("op1", "op2")
       }
@@ -59,6 +59,33 @@ function isMathSymbol(val) {
   if (val === "+" || val === "-" || val === "*" || val === "/" || val === "%")
     return true;
 }
+
+
+function isCorrectInput(operation, inputValue) {
+  var lastValueOfInput = document.getElementById(operation).value;
+  if (lastValueOfInput.length > 0) {
+    lastValueOfInput = lastValueOfInput.slice(lastValueOfInput.length - 1);
+  }
+  if ( lastValueOfInput === '.' && ( inputValue === '(' || inputValue === ')' || inputValue === '.' ) ) {
+    return false;
+  }
+
+  if ( inputValue === '.'  && lastValueOfInput === '' ) {
+    return false;
+  }
+
+  if ( isMathSymbol(lastValueOfInput) && (inputValue ==='.' || inputValue ===')') ) {
+    return false;
+  }
+
+  if ( lastValueOfInput==='.' && isMathSymbol(inputValue) ) {
+    return false;
+  }
+  
+  return true;
+}
+
+
 
 const NumPad = () => {
   return (

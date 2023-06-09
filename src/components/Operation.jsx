@@ -51,6 +51,22 @@ function contentMathSymbol(opID) {
   return false;
 }
 
+function isCorrectInput(event, operation) {
+  var lastValueOfInput = document.getElementById(operation).value;
+  lastValueOfInput = lastValueOfInput.at(lastValueOfInput.length - 1);
+  if (lastValueOfInput === '.' && isMathSymbol(event.key))
+    event.preventDefault();
+
+  if (lastValueOfInput === '.' && (event.key === '(' || event.key === ')' || event.key === '.'))
+    event.preventDefault();
+
+  if (event.key === '.' && typeof lastValueOfInput === 'undefined')
+    event.preventDefault();
+
+  if (isMathSymbol(lastValueOfInput) && (event.key ==='.' || event.key ===')' ) )
+    event.preventDefault();
+}
+
 var catchValueOfOP1 = '';
 var catchValueOfOP2 = '';
 
@@ -67,6 +83,7 @@ const op1 = () => {
               event.preventDefault();
             }
             validateInputDoubleMathSymbol(event, "op1");
+            isCorrectInput(event, "op1");
           }}
           onKeyUp={() => {
             calculate("op1", "op2");
@@ -102,6 +119,7 @@ const op1 = () => {
               event.preventDefault();
             }
             validateInputDoubleMathSymbol(event, "op2");
+            isCorrectInput(event, "op2");
           }}
           onKeyUp={() => {
             calculate("op2", "op1");

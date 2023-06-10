@@ -82,7 +82,7 @@ function isCorrectInput(operation, inputValue) {
     return false;
   }
 
-  if ( !isMathSymbol(lastValueOfInput) && inputValue ===')' ) {
+  if ( !isMathSymbol(lastValueOfInput) && inputValue ==='(' ) {
     return false;
   }
   

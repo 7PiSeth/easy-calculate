@@ -35,7 +35,7 @@ const calculate = (operation, result) => {
     }
     document.getElementById(result).value = calculatedValue;
   } catch (error) {
-    document.getElementById(result).value = "Error input operation incorrect";
+    document.getElementById(result).value = "Input incorrect operation";
   }
 }
 

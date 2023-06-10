@@ -128,7 +128,7 @@ const Operation = () => {
               var value = document.getElementById("op1").value;
               if (value !== "") {
                 copy(value);
-                alert(value + " has been copy.");
+                alert(value + " has been copied");
               }
             }}
           />
@@ -180,7 +180,7 @@ const Operation = () => {
               var value = document.getElementById("op2").value;
               if (value !== "") {
                 copy(value);
-                alert(value + " has been copy.");
+                alert(value + " has been copied");
               }
             }}
           />

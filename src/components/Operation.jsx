@@ -112,8 +112,8 @@ const Operation = () => {
         />
         {op == "op1" ? (
           <TiDelete
-            size={30}
-            className="transform duration-100 absolute right-4 top-[25%] cursor-pointer active:scale-125"
+            size={35}
+            className="transform duration-100 absolute right-4 top-[22%] cursor-pointer active:scale-125"
             onClick={() => {
               document.getElementById("op1").value = "";
               document.getElementById("op2").value = "";
@@ -122,8 +122,8 @@ const Operation = () => {
           />
         ) : (
           <FaRegCopy
-            size={20}
-            className="transform duration-100 absolute right-5 top-[33%] cursor-pointer active:scale-125"
+            size={25}
+            className="transform duration-100 absolute right-5 top-[31%] cursor-pointer active:scale-125"
             onClick={() => {
               var value = document.getElementById("op1").value;
               if (value !== "") {
@@ -164,8 +164,8 @@ const Operation = () => {
         />
         {op == "op2" ? (
           <TiDelete
-            size={30}
-            className="transform duration-100 absolute right-4 top-[25%] cursor-pointer active:scale-125"
+            size={35}
+            className="transform duration-100 absolute right-4 top-[22%] cursor-pointer active:scale-125"
             onClick={() => {
               document.getElementById("op1").value = "";
               document.getElementById("op2").value = "";
@@ -174,8 +174,8 @@ const Operation = () => {
           />
         ) : (
           <FaRegCopy
-            size={20}
-            className="transform duration-100 absolute right-5 top-[33%] cursor-pointer active:scale-125"
+            size={25}
+            className="transform duration-100 absolute right-5 top-[31%] cursor-pointer active:scale-125"
             onClick={() => {
               var value = document.getElementById("op2").value;
               if (value !== "") {

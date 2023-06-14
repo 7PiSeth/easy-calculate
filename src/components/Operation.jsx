@@ -14,7 +14,7 @@ const calculate = (operation, result) => {
     if (calculatedValue.substr(calculatedValue.length - 3, 3) === ".00") {
       calculatedValue = calculatedValue.substr(0, calculatedValue.length - 3);
     }
-    document.getElementById(result).value = calculatedValue;
+    document.getElementById(result).value = Intl.NumberFormat('en-US').format(calculatedValue);
   } catch (error) {
     document.getElementById(result).value = "Input incorrect operation";
   }
@@ -103,6 +103,7 @@ const Operation = () => {
             var textArea = document.getElementById("history");
             var op1 = document.getElementById("op1");
             var op2 = document.getElementById("op2");
+            op1.value = op1.value.replaceAll(',', '');
 
             if (contentMathSymbol("op2") && catchValueOfOP2 !== op2.value) {
               textArea.value += "\n" + op2.value + " = " + op1.value;
@@ -155,6 +156,7 @@ const Operation = () => {
             var textArea = document.getElementById("history");
             var op1 = document.getElementById("op1");
             var op2 = document.getElementById("op2");
+            op2.value = op2.value.replaceAll(',', '');
 
             if (contentMathSymbol("op1") && catchValueOfOP1 !== op1.value) {
               textArea.value += "\n" + op1.value + " = " + op2.value;

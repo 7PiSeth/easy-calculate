@@ -33,7 +33,7 @@ const calculate = (operation, result) => {
     if (calculatedValue.substr(calculatedValue.length - 3, 3) === '.00') {
       calculatedValue = calculatedValue.substr(0, calculatedValue.length - 3);
     }
-    document.getElementById(result).value = calculatedValue;
+    document.getElementById(result).value = Intl.NumberFormat('en-US').format(calculatedValue);
   } catch (error) {
     document.getElementById(result).value = "Input incorrect operation";
   }

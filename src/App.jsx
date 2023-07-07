@@ -3,6 +3,7 @@ import TopBar from "./components/TopBar"
 import NumPad from './components/NumPad'
 import Operation from './components/Operation'
 import ShowHistory from './components/ShowHistory'
+import Footer from './components/Footer'
 
 const App = () => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const App = () => {
         <NumPad />
         <ShowHistory />
       </div>
+      <Footer className='max-sm:hidden' />
     </div>
   )
 }

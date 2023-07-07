@@ -19,6 +19,9 @@
     text-black dark:text-white bg-[rgb(244,246,248)] dark:bg-[#282C34]
     text-2xl font-medium
   }
+  .social-link>a{
+    @apply mx-3 md:mx-5 md:hover:opacity-70
+  }
 }
 
 @layer components {

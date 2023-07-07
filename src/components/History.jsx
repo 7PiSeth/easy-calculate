@@ -1,5 +1,6 @@
 import React from "react";
 import { TiDelete } from "react-icons/ti";
+import Footer from "./Footer";
 
 const History = (props) => {
   return (
@@ -29,6 +30,7 @@ const History = (props) => {
       >
         Operation History
       </textarea>
+      <Footer className='sm:hidden'/>
     </div>
   );
 };

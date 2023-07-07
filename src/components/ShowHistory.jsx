@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MdSpeakerNotes } from "react-icons/md";
 import History from "./History";
+import Footer from "./Footer";
 
 const ShowHistory = () => {
   const [showHistory, setShowHistory] = useState(false);

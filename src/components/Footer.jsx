@@ -5,7 +5,7 @@ import {
   BsYoutube,
   BsSkype,
   BsLinkedin,
-  BsPersonFill,
+  BsPersonBadgeFill,
 } from "react-icons/bs";
 const Footer = (props) => {
   return (
@@ -14,6 +14,13 @@ const Footer = (props) => {
     text-slate-00 flex flex-col md:flex-row justify-evenly items-center`}
     >
       <div className="flex social-link">
+        <a
+          href="https://pisethseam.github.io/maportfolio/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <BsPersonBadgeFill size={25} />
+        </a>
         <a
           href="https://github.com/PiSethSeam"
           target="_blank"
@@ -48,13 +55,8 @@ const Footer = (props) => {
           rel="noopener noreferrer"
         >
           <BsLinkedin size={25} />
-        </a>        <a
-          href="https://pisethseam.github.io/maportfolio/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <BsPersonFill size={25} />
         </a>
+
       </div>
       <p class="md:mr-5 text-center">
         Copyright © 2023 <b>PiSeth</b> | All Rights Reserved

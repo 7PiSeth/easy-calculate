@@ -84,6 +84,7 @@ const Operation = () => {
     <div className="max-md:order-first flex flex-col justify-around h-[160px] w-[500px] max-sm:w-screen text-lg p-2">
       <div className="relative">
         <input
+          autoFocus
           id="op1"
           autocomplete="off"
           placeholder="Input your operation here.."

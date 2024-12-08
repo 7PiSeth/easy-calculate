@@ -15,14 +15,14 @@ const Footer = (props) => {
     >
       <div className="flex social-link">
         <a
-          href="https://pisethseam.github.io/maportfolio/"
+          href="https://7piseth.github.io/maportfolio/"
           target="_blank"
           rel="noopener noreferrer"
         >
           <BsPersonBadgeFill size={25} />
         </a>
         <a
-          href="https://github.com/PiSethSeam"
+          href="https://github.com/7piseth"
           target="_blank"
           rel="noopener noreferrer"
         >
